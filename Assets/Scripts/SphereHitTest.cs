@@ -13,15 +13,16 @@ public class SphereHitTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float distance = Mathf.Sqrt( Mathf.Pow(_sphereTwo.position.x - _sphereOne.position.x, 2) +
-                                     Mathf.Pow(_sphereTwo.position.y - _sphereOne.position.y, 2) +
-                                     Mathf.Pow(_sphereTwo.position.z - _sphereOne.position.z, 2));
+        float distance = Mathf.Pow(_sphereTwo.position.x - _sphereOne.position.x, 2) +
+                         Mathf.Pow(_sphereTwo.position.y - _sphereOne.position.y, 2) +
+                         Mathf.Pow(_sphereTwo.position.z - _sphereOne.position.z, 2);
         float rad = (_sphereOne.localScale.x + _sphereTwo.localScale.x) / 2;
 
-        if(distance < rad)
+        if(distance < rad * rad)
         {
             Debug.Log("hit");
-        } else
+        }
+        else
         {
             Debug.Log("not hit");
         }
